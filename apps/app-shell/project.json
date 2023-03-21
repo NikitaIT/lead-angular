@@ -6,7 +6,7 @@
   "prefix": "lead-angular",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/app-shell",
@@ -19,7 +19,10 @@
           "apps/app-shell/src/assets"
         ],
         "styles": ["apps/app-shell/src/styles.css"],
-        "scripts": []
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/app-shell/webpack.config.js"
+        }
       },
       "configurations": {
         "production": {
@@ -35,7 +38,10 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/app-shell/webpack.prod.config.js"
+          }
         },
         "development": {
           "buildOptimizer": false,
@@ -49,7 +55,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nrwl/angular:module-federation-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "app-shell:build:production"
@@ -58,7 +64,10 @@
           "browserTarget": "app-shell:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "publicHost": "http://localhost:4200"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

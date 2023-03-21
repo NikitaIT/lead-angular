@@ -1,0 +1,121 @@
+{
+  "name": "feature-a",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/feature-a/src",
+  "prefix": "lead-angular",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/feature-a",
+        "index": "apps/feature-a/src/index.html",
+        "main": "apps/feature-a/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/feature-a/tsconfig.app.json",
+        "assets": [
+          "apps/feature-a/src/favicon.ico",
+          "apps/feature-a/src/assets"
+        ],
+        "styles": ["apps/feature-a/src/styles.css"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/feature-a/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/feature-a/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "feature-a:build:production"
+        },
+        "development": {
+          "browserTarget": "feature-a:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "feature-a:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/feature-a/**/*.ts",
+          "apps/feature-a/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/feature-a/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/angular:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "feature-a:build",
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "feature-a:build:development"
+        },
+        "production": {
+          "buildTarget": "feature-a:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
