@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { ShopComponent } from './shop/shop.component';
 import { SharedUiModule } from '@lead-angular/shared/ui';
+// import { ReactComponent } from './react/react.component';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, ShopComponent],

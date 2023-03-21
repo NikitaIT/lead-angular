@@ -1,4 +1,4 @@
 module.exports = {
   name: 'app-shell',
-  remotes: ['feature-a'],
+  remotes: ['feature-a', ['react-shell', 'http://localhost:4300']],
 };

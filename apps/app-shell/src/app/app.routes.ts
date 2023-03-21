@@ -1,6 +1,7 @@
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { Route } from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
+import { ReactComponent } from './react/react.component';
 
 export const appRoutes: Route[] = [
   {
@@ -11,6 +12,10 @@ export const appRoutes: Route[] = [
   {
     path: '',
     component: NxWelcomeComponent,
+  },
+  {
+    path: 'react',
+    component: ReactComponent,
   },
   {
     path: 'cart',
