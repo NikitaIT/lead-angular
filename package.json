@@ -31,7 +31,7 @@
     "@commitlint/config-nx-scopes": "^17.4.3",
     "@commitlint/cz-commitlint": "^17.4.4",
     "@faker-js/faker": "^7.6.0",
-    "@nrwl/cypress": "15.8.6",
+    "@nrwl/cypress": "15.8.7",
     "@nrwl/eslint-plugin-nx": "15.8.6",
     "@nrwl/jest": "15.8.6",
     "@nrwl/js": "15.8.6",
