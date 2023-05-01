@@ -35,7 +35,7 @@
     "@commitlint/cz-commitlint": "^17.4.4",
     "@faker-js/faker": "^7.6.0",
     "@nrwl/cypress": "15.8.6",
-    "@nrwl/eslint-plugin-nx": "15.8.6",
+    "@nrwl/eslint-plugin-nx": "16.0.1",
     "@nrwl/jest": "15.8.6",
     "@nrwl/js": "15.8.6",
     "@nrwl/linter": "15.8.6",
